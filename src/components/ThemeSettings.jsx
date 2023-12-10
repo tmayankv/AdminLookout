@@ -43,7 +43,7 @@ function ThemeSettings() {
           <div className="flex gap-3 flex-row mt-3">
             {themeColors.map((item, i) => (
               <button type="button">
-                <p className="w-8 h-7 rounded-xl flex justify-center items-center" key={i} style={{ backgroundColor: item.color }} onMouseEnter={() => handleColor(item.color)}>
+                <p className="w-8 h-7 rounded-xl flex justify-center items-center" key={i} style={{ backgroundColor: item.color }} onMouseDownCapture={() => handleColor(item.color)}>
                   <BsCheck className={`${currentColor === item.color ? '' : 'hidden'}`} />
                 </p>
               </button>

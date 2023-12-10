@@ -22,7 +22,7 @@ const App = () => {
             <button
               type="button"
               onClick={() => { setThemeOpen(true); }}
-              className="text-3xl p-3 hover:drop-shadow-3xl  rounded-full p-1 text-gray-900"
+              className="text-3xl p-3 hover:drop-shadow-3xl rounded-full text-gray-900"
               style={{ background: currentColor }}
             >
               <FiSettings />
