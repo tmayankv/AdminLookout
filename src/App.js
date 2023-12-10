@@ -10,10 +10,10 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const { activeMenu, ThemeOpen, setThemeOpen, ThemeSet, currentColor } = useStateContext();
+  const { activeMenu, ThemeOpen, setThemeOpen, currentColor } = useStateContext();
   return (
     <HashRouter>
-      <div className={`flex relative ${ThemeSet === 'Dark' ? 'dark' : ''} dark:bg-main-dark-bg`}>
+      <div className={`flex relative ${localStorage.theme === 'Dark' ? 'dark' : ''} dark:bg-main-dark-bg`}>
         <div className="fixed right-4 bottom-4 hover:drop-shadow-md" style={{ zIndex: '1000' }}>
           <TooltipComponent
             content="Settings"

@@ -6,23 +6,23 @@ import { useStateContext } from '../contexts/ContextProvider';
 import { themeColors } from '../data/dummy';
 
 function ThemeSettings() {
-  const { ThemeSetter, handleColor, ThemeSet, currentColor } = useStateContext();
+  const { setThemeOpen, ThemeSetter, handleColor, currentColor } = useStateContext();
+
+  const handleThemeChange = (e) => {
+    ThemeSetter(e);
+  };
+
   return (
     <div className="bg-half-transparent w-full fixed nav-item top-0 right-0">
       <div className={`float-right h-screen ${localStorage.getItem('theme') === 'Dark' ? 'dark' : ''} bg-white dark:bg-secondary-dark-bg dark:text-white w-400 `}>
         <div className="flex justify-between items-center p-4 ml-4">
           <p className="text-lg text-bold">Settings</p>
-          {/* <TooltipComponent constent="Close" position="BottomCenter">
-            <button type="button">
-              <MdOutlineCancel onClick={() => { setThemeOpen(false); }} />
-            </button>
-          </TooltipComponent> */}
-          <TooltipComponent content="Menu" position="BottomCenter">
+          <TooltipComponent content="Close" position="BottomCenter">
             <button
               type="button"
               className="text-xl rounded-full p-3 hover:bg-dark-100 mt-4 block"
             >
-              <MdOutlineCancel />
+              <MdOutlineCancel onClick={() => { setThemeOpen(false); }} />
             </button>
           </TooltipComponent>
         </div>
@@ -30,12 +30,12 @@ function ThemeSettings() {
         <div className="flex flex-col p-4 ml-4">
           <p className="text-sm text-gray-700 dark:text-white text-semibold">Theme Selection</p>
           <div className="mt-5">
-            <input type="radio" id="light" name="theme" checked={ThemeSet !== 'Dark'} onChange={ThemeSetter} value="Light" />
-            <span className="cursor-pointer pl-1">Light</span>
+            <input type="radio" id="light" name="theme" checked={localStorage.theme === 'Light'} onChange={handleThemeChange} value="Light" />
+            <label htmlFor="light" className="cursor-pointer pl-1">Light</label>
           </div>
           <div className="mt-5">
-            <input type="radio" id="dark" name="theme" checked={ThemeSet === 'Dark'} onChange={ThemeSetter} value="Dark" />
-            <span className="cursor-pointer pl-1">Dark</span>
+            <input type="radio" id="dark" name="theme" checked={localStorage.theme !== 'Light'} onChange={handleThemeChange} value="Dark" />
+            <label htmlFor="dark" className="cursor-pointer pl-1">Dark</label>
           </div>
         </div>
         <div className="flex flex-col pt-2 p-4 ml-4">
@@ -43,7 +43,7 @@ function ThemeSettings() {
           <div className="flex gap-3 flex-row mt-3">
             {themeColors.map((item, i) => (
               <button type="button">
-                <p className="w-8 h-7 rounded-xl flex justify-center items-center" key={i} style={{ backgroundColor: item.color }} onMouseDownCapture={() => handleColor(item.color)}>
+                <p className="w-8 h-7 rounded-xl flex justify-center items-center" key={i} style={{ backgroundColor: item.color }} onClick={() => handleColor(item.color)} >
                   <BsCheck className={`${currentColor === item.color ? '' : 'hidden'}`} />
                 </p>
               </button>

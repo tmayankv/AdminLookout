@@ -14,13 +14,12 @@ export const ContextProvider = ({ children }) => {
   const [isClicked, setisClicked] = useState(initialState);
   const [screenSize, setscreenSize] = useState(undefined);
   const [currentColor, setcurrentColor] = useState(localStorage.getItem('currentcolor'));
-  const [ThemeSet, setThemeSet] = useState(localStorage.getItem('theme'));
   const [ThemeOpen, setThemeOpen] = useState(false);
 
   const ThemeSetter = (e) => {
-    setThemeSet(e.target.values);
     localStorage.setItem('theme', e.target.value);
     setThemeOpen(false);
+    console.log(e.target.value);
   };
   const handleColor = (co) => {
     setcurrentColor(co);
@@ -46,11 +45,10 @@ export const ContextProvider = ({ children }) => {
       ThemeOpen,
       setThemeOpen,
       currentColor,
-      ThemeSet,
       ThemeSetter,
       handleColor,
       handlefalseClick,
-    }), [activeMenu, isClicked, screenSize, ThemeOpen, currentColor, ThemeSet]);
+    }), [activeMenu, isClicked, screenSize, ThemeOpen, currentColor]);
 
   return (
     <StateContext.Provider value={contextValue}>
