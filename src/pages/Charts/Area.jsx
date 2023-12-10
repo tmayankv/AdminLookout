@@ -14,13 +14,24 @@ function Area() {
         height="420px"
         primaryXAxis={areaPrimaryXAxis}
         primaryYAxis={areaPrimaryYAxis}
-        chartArea={{ border: { width: 0 }}}
+        chartArea={{ border: { width: 0 } }}
         tooltip={{ enable: true }}
         background={ThemeSet === 'Dark' ? '#33373E' : 'white'}
       >
         <Inject services={[Legend, DateTime, AreaSeries, SplineAreaSeries]} />
         <SeriesCollectionDirective>
-          {areaCustomSeries.map((item, index) => <SeriesDirective key={index} {...item} />)}
+          {areaCustomSeries.map((item, index) => (
+            <SeriesDirective
+              key={index}
+              dataSource={item.dataSource}
+              xName={item.xName}
+              yName={item.yName}
+              name={item.name}
+              opacity={item.opacity}
+              type={item.type}
+              width={item.width}
+            />
+          ))}
         </SeriesCollectionDirective>
       </ChartComponent>
     </div>

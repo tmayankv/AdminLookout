@@ -16,7 +16,15 @@ function Employees() {
       >
         <ColumnsDirective>
           {employeesGrid.map((item, i) => (
-            <ColumnDirective key={i} {...item} />
+            <ColumnDirective
+              key={i}
+              field={item.field}
+              headerText={item.headerText}
+              template={item.template}
+              width={item.width}
+              textAlign={item.textAlign}
+              format={item.format}
+            />
           ))}
         </ColumnsDirective>
         <Inject services={[Page, Search, Toolbar]} />

@@ -15,7 +15,16 @@ function Orders() {
       >
         <ColumnsDirective>
           {ordersGrid.map((item, i) => (
-            <ColumnDirective key={i} {...item} />
+            <ColumnDirective
+              key={i}
+              field={item.field}
+              headerText={item.headerText}
+              template={item.template}
+              textAlign={item.textAlign}
+              width={item.width}
+              editType={item.editType}
+              format={item.format}
+            />
           ))}
         </ColumnsDirective>
         <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport]} />

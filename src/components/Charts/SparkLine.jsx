@@ -16,7 +16,7 @@ function SparkLine({ id, type, width, height, data, color }) {
       fill={color}
       tooltipSettings={{
         visible: true,
-        format: '${x} : data ${yval }'
+        format: 'x : data yval',
       }}
     >
       <Inject services={[SparklineTooltip]} />

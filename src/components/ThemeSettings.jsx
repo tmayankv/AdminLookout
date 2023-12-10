@@ -6,7 +6,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 import { themeColors } from '../data/dummy';
 
 function ThemeSettings() {
-  const { setThemeOpen, ThemeSetter, handleColor, ThemeSet, currentColor } = useStateContext();
+  const { ThemeSetter, handleColor, ThemeSet, currentColor } = useStateContext();
   return (
     <div className="bg-half-transparent w-full fixed nav-item top-0 right-0">
       <div className={`float-right h-screen ${localStorage.getItem('theme') === 'Dark' ? 'dark' : ''} bg-white dark:bg-secondary-dark-bg dark:text-white w-400 `}>

@@ -18,7 +18,13 @@ function Kanban() {
       >
         <ColumnsDirective>
           {kanbanGrid.map((item, i) => (
-            <ColumnDirective key={i} {...item} />
+            <ColumnDirective
+              key={i}
+              headerText={item.headerText}
+              keyField={item.keyField}
+              allowToggle={item.allowToggle}
+              isExpanded={item.isExpanded}
+            />
           ))}
         </ColumnsDirective>
       </KanbanComponent>

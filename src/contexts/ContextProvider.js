@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState} from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 
 const StateContext = createContext();
 
@@ -34,10 +34,26 @@ export const ContextProvider = ({ children }) => {
   function handlefalseClick(clicked) {
     setisClicked({ ...initialState, [clicked]: false });
   }
+  const contextValue = useMemo(() => (
+    {
+      activeMenu,
+      setactiveMenu,
+      isClicked,
+      setisClicked,
+      handleClick,
+      screenSize,
+      setscreenSize,
+      ThemeOpen,
+      setThemeOpen,
+      currentColor,
+      ThemeSet,
+      ThemeSetter,
+      handleColor,
+      handlefalseClick,
+    }), [activeMenu, isClicked, screenSize, ThemeOpen, currentColor, ThemeSet]);
+
   return (
-    <StateContext.Provider
-      value={{ activeMenu, setactiveMenu, isClicked, setisClicked, handleClick, screenSize, setscreenSize, ThemeOpen, setThemeOpen,currentColor, ThemeSet, ThemeSetter,handleColor, handlefalseClick }}
-    >
+    <StateContext.Provider value={contextValue}>
       {children}
     </StateContext.Provider>
   );

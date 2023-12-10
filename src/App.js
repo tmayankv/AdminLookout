@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
@@ -12,7 +12,7 @@ import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
   const { activeMenu, ThemeOpen, setThemeOpen, ThemeSet, currentColor } = useStateContext();
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={`flex relative ${ThemeSet === 'Dark' ? 'dark' : ''} dark:bg-main-dark-bg`}>
         <div className="fixed right-4 bottom-4 hover:drop-shadow-md" style={{ zIndex: '1000' }}>
           <TooltipComponent
@@ -77,7 +77,7 @@ const App = () => {
           <Footer />
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

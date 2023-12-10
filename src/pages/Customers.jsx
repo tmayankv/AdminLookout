@@ -18,7 +18,17 @@ function Employees() {
       >
         <ColumnsDirective>
           {customersGrid.map((item, i) => (
-            <ColumnDirective key={i} {...item} />
+            <ColumnDirective
+              key={i}
+              type={item.type}
+              field={item.field}
+              headerText={item.headerText}
+              template={item.template}
+              width={item.width}
+              textAlign={item.textAlign}
+              format={item.format}
+              isPrimaryKey={item.isPrimaryKey}
+            />
           ))}
         </ColumnsDirective>
         <Inject services={[Page, Sort, Filter, Edit, Selection, Toolbar]} />
