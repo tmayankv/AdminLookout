@@ -31,11 +31,11 @@ function ThemeSettings() {
           <p className="text-sm text-gray-700 dark:text-white text-semibold">Theme Selection</p>
           <div className="mt-5">
             <input type="radio" id="light" name="theme" checked={localStorage.theme === 'Light'} onChange={handleThemeChange} value="Light" />
-            <label htmlFor="light" className="cursor-pointer pl-1">Light</label>
+            <span className="cursor-pointer pl-1">Light</span>
           </div>
           <div className="mt-5">
             <input type="radio" id="dark" name="theme" checked={localStorage.theme !== 'Light'} onChange={handleThemeChange} value="Dark" />
-            <label htmlFor="dark" className="cursor-pointer pl-1">Dark</label>
+            <span className="cursor-pointer pl-1">Dark</span>
           </div>
         </div>
         <div className="flex flex-col pt-2 p-4 ml-4">
