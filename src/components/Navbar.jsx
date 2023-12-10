@@ -40,13 +40,13 @@ function Navbar() {
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
-      <NavButton title="Menu" customfunc={() => setactiveMenu(!activeMenu)} color="blue" icon={<AiOutlineMenu />} />
+      <NavButton title="Menu" customfunc={() => setactiveMenu(!activeMenu)} color={localStorage.currentcolor} icon={<AiOutlineMenu />} />
       <div className="flex gap-1 items-center">
-        <NavButton title="Cart" customfunc={() => { handleClick('cart'); }} color="blue" icon={<FiShoppingCart />} dotColor="black" />
-        <NavButton title="Chat" customfunc={() => { handleClick('chat'); }} color="blue" icon={<BsChatLeft />} dotColor="black" />
-        <NavButton title="Notification" customfunc={() => { handleClick('notification'); }} color="blue" icon={<RiNotification3Line />} dotColor="black" />
+        <NavButton title="Cart" customfunc={() => { handleClick('cart'); }} color={localStorage.currentcolor} icon={<FiShoppingCart />} dotColor={localStorage.theme === 'Dark' ? 'white' : 'black'} />
+        <NavButton title="Chat" customfunc={() => { handleClick('chat'); }} color={localStorage.currentcolor} icon={<BsChatLeft />} dotColor={localStorage.theme === 'Dark' ? 'white' : 'black'} />
+        <NavButton title="Notification" customfunc={() => { handleClick('notification'); }} color={localStorage.currentcolor} icon={<RiNotification3Line />} dotColor={localStorage.theme === 'Dark' ? 'white' : 'black'} />
         <TooltipComponent content="User Profile" position="BottomCenter">
-          <div className="flex items-center gap-1 p-2 rounded-lg hover:bg-gray-300 cursor-pointer" onClick={() => { handleClick('userProfile'); }}>
+          <div className={`flex items-center gap-1 p-2 rounded-lg hover:bg-gray-500 cursor-pointer text-${localStorage.theme === 'Dark' ? 'white' : 'black'}`} onClick={() => { handleClick('userProfile'); }}>
             <img src={avatar} className="w-10 h-10 rounded-full" alt="" />
             <p>Hi,</p>
             <p>Mayank</p>

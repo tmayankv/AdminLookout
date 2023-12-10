@@ -30,12 +30,12 @@ function ThemeSettings() {
         <div className="flex flex-col p-4 ml-4">
           <p className="text-sm text-gray-700 dark:text-white text-semibold">Theme Selection</p>
           <div className="mt-5">
-            <input type="radio" id="light" name="theme" checked={localStorage.theme === 'Light'} onChange={handleThemeChange} value="Light" />
-            <span className="cursor-pointer pl-1">Light</span>
+            <input type="radio" className="cursor-pointer" id="light" name="theme" checked={localStorage.theme === 'Light'} onChange={handleThemeChange} value="Light" />
+            <span className="pl-1">Light</span>
           </div>
           <div className="mt-5">
-            <input type="radio" id="dark" name="theme" checked={localStorage.theme !== 'Light'} onChange={handleThemeChange} value="Dark" />
-            <span className="cursor-pointer pl-1">Dark</span>
+            <input type="radio" id="dark" className="cursor-pointer" name="theme" checked={localStorage.theme !== 'Light'} onChange={handleThemeChange} value="Dark" />
+            <span className="pl-1">Dark</span>
           </div>
         </div>
         <div className="flex flex-col pt-2 p-4 ml-4">
@@ -43,7 +43,7 @@ function ThemeSettings() {
           <div className="flex gap-3 flex-row mt-3">
             {themeColors.map((item, i) => (
               <button type="button">
-                <p className="w-8 h-7 rounded-xl flex justify-center items-center" key={i} style={{ backgroundColor: item.color }} onClick={() => handleColor(item.color)} >
+                <p className="w-8 h-7 rounded-xl flex justify-center items-center" key={i} style={{ backgroundColor: item.color }} onMouseUpCapture={() => handleColor(item.color)}>
                   <BsCheck className={`${currentColor === item.color ? '' : 'hidden'}`} />
                 </p>
               </button>
